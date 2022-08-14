@@ -6,8 +6,8 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import DewEditor from '../src/libs/DewEditor.vue'
-import ImgMenu from '../src/libs/menu/ImgMenu.vue'
+import DewEditor from '../src/DewEditor.vue'
+import ImgMenu from '../src/menu/ImgMenu.vue'
 
 export default defineComponent({
   name: 'App',
@@ -25,7 +25,5 @@ export default defineComponent({
 <style lang="scss">
 .container {
   height: 100vh;
-  background-color: gray;
-  border: 1px solid red;
 }
 </style>
