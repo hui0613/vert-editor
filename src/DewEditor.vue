@@ -15,9 +15,13 @@
     <div class="dew-editor-main-area">
       <DewEditorContainer :editorTextAreaHeight="editorTextAreaHeight">
         <template v-slot:leftSection>
-          <textarea></textarea>
+          <textarea v-model="markdown"></textarea>
         </template>
-        <template v-slot:rightSection></template>
+        <template v-slot:rightSection>
+          <div class="dew-editor-preview-area">
+            <iframe width="100%" height="100%" frameborder="0" :srcdoc="htmlContent"> </iframe>
+          </div>
+        </template>
       </DewEditorContainer>
     </div>
 
@@ -29,8 +33,10 @@
 import { defineComponent } from 'vue'
 import DewPreviewMenu from './menu/PreviewMenu.vue'
 import DewEditorContainer from './components/DewEditorContainer.vue'
+import MarkdownIt from 'markdown-it'
 import { copyTextToClipboard, insertTextIntoEditor, isExistSelection } from './libs/dewEditor'
 import { debounce } from './utils/tools'
+const markdownIt = new MarkdownIt()
 
 export default defineComponent({
   name: 'DewEditor',
@@ -47,6 +53,7 @@ export default defineComponent({
       clipboardValue: '',
       openPreview: true,
       editorTextAreaHeight: 0,
+      markdown: '',
     }
   },
   components: {
@@ -90,6 +97,11 @@ export default defineComponent({
       )
     },
   },
+  computed: {
+    htmlContent() {
+      return markdownIt.render(this.markdown)
+    },
+  },
 })
 </script>
 
@@ -127,6 +139,10 @@ export default defineComponent({
       border: none;
       resize: none;
       outline: none;
+    }
+    .dew-editor-preview-area {
+      width: 100%;
+      height: 100%;
     }
   }
 

@@ -1,4 +1,8 @@
+import { debounce } from '@/utils/tools'
 import Clipboard from 'clipboard'
+import MarkdownIt from 'markdown-it'
+
+const markdownIt = new MarkdownIt()
 
 export function insertTextIntoEditor(ele: { [key: string]: any }, text: string) {
   ele.focus()

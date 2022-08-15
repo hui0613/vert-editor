@@ -1,4 +1,4 @@
-export function debounce(fn: any, delay: number) {
+export function debounce(fn: any, delay: number, callback?: (args: any) => any): (args: any) => any {
   let timer: number | null = null
   return function (this: any, args: any) {
     if (timer) {
@@ -6,7 +6,10 @@ export function debounce(fn: any, delay: number) {
     }
     const _args = args
     timer = setTimeout(() => {
-      fn.call(this, _args)
+      const result = fn.call(this, _args)
+      if (callback) {
+        callback(result)
+      }
     }, delay)
   }
 }
