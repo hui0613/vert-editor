@@ -15,12 +15,10 @@
     <div class="dew-editor-main-area">
       <DewEditorContainer :editorTextAreaHeight="editorTextAreaHeight">
         <template v-slot:leftSection>
-          <textarea v-model="markdown"></textarea>
+          <textarea @scroll="textareaScroll" v-model="markdown"></textarea>
         </template>
         <template v-slot:rightSection>
-          <div class="dew-editor-preview-area">
-            <iframe width="100%" height="100%" frameborder="0" :srcdoc="htmlContent"> </iframe>
-          </div>
+          <div @scroll="previewScroll" class="dew-editor-preview-area" v-html="htmlContent"></div>
         </template>
       </DewEditorContainer>
     </div>
@@ -36,7 +34,15 @@ import DewEditorContainer from './components/DewEditorContainer.vue'
 import MarkdownIt from 'markdown-it'
 import { copyTextToClipboard, insertTextIntoEditor, isExistSelection } from './libs/dewEditor'
 import { debounce } from './utils/tools'
-const markdownIt = new MarkdownIt()
+const markdownIt = new MarkdownIt({
+  html: true, // Enable HTML tags in source
+  xhtmlOut: true, // Use '/' to close single tags (<br />).
+  breaks: true, // Convert '\n' in paragraphs into <br>
+  langPrefix: 'language-', // CSS language prefix for fenced blocks. Can be
+  linkify: false, // 自动识别url
+  typographer: true,
+  quotes: '“”‘’',
+})
 
 export default defineComponent({
   name: 'DewEditor',
@@ -53,7 +59,8 @@ export default defineComponent({
       clipboardValue: '',
       openPreview: true,
       editorTextAreaHeight: 0,
-      markdown: '',
+      markdown:
+        'a\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\n',
     }
   },
   components: {
@@ -86,7 +93,7 @@ export default defineComponent({
     setEditorTextAreaHeight() {
       const editorContainer = this.$refs.editorMainContainer as any
 
-      this.editorTextAreaHeight = editorContainer.clientHeight - 40
+      this.editorTextAreaHeight = editorContainer.clientHeight - 30
     },
     listenResize() {
       window.addEventListener(
@@ -95,6 +102,19 @@ export default defineComponent({
           this.setEditorTextAreaHeight()
         }, 100)
       )
+    },
+    textareaScroll(event: any) {
+      console.log(event)
+      const target = event.target
+      const scrollHeight = target.scrollHeight
+      const scrollTop = target.scrollTop
+      console.log((scrollTop / scrollHeight) * 100)
+    },
+    previewScroll(event: any) {
+      const target = event.target
+      const scrollHeight = target.scrollHeight
+      const scrollTop = target.scrollTop
+      console.log((scrollTop / scrollHeight) * 100)
     },
   },
   computed: {
@@ -110,18 +130,17 @@ export default defineComponent({
   width: 100%;
   height: 100%;
   background-color: #ffffff;
-  border-radius: 4px;
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
-  overflow-y: scroll;
-
+  overflow: hidden;
   border: 1px solid #999;
   .dew-editor-menu-container {
     width: 100%;
     height: 30px;
     display: flex;
     flex-direction: row;
-    border-bottom: 1px solid #999999;
+    border-bottom: 1px solid #999;
     .dww-editor-menu-item {
       float: left;
       padding: 0 4px;
@@ -139,10 +158,14 @@ export default defineComponent({
       border: none;
       resize: none;
       outline: none;
+      font-size: 16px;
     }
     .dew-editor-preview-area {
       width: 100%;
       height: 100%;
+      box-sizing: border-box;
+      overflow-y: auto;
+      box-sizing: border-box;
     }
   }
 

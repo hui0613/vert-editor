@@ -7,7 +7,7 @@
         <slot name="leftSection"></slot>
       </div>
     </div>
-    <div class="dew-editor-preview-area">
+    <div class="dew-editor-preview-area" :style="{ height: editorTextAreaHeight + 'px' }">
       <slot name="rightSection"></slot>
     </div>
   </div>
@@ -76,7 +76,6 @@ export default defineComponent({
     }
   }
   .dew-editor-preview-area {
-    height: 100%;
     padding: 16px;
     background-color: #eee;
     box-sizing: border-box;
