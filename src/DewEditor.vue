@@ -15,10 +15,10 @@
     <div class="dew-editor-main-area">
       <DewEditorContainer :editorTextAreaHeight="editorTextAreaHeight">
         <template v-slot:leftSection>
-          <textarea @scroll="textareaScroll" v-model="markdown"></textarea>
+          <textarea @scroll="textareaScroll" ref="dewEditorTextarea" v-model="markdown"></textarea>
         </template>
         <template v-slot:rightSection>
-          <div @scroll="previewScroll" class="dew-editor-preview-area" v-html="htmlContent"></div>
+          <div ref="previewScroll" class="dew-editor-preview-area" v-html="htmlContent"></div>
         </template>
       </DewEditorContainer>
     </div>
@@ -85,7 +85,7 @@ export default defineComponent({
       insertTextIntoEditor(this.getTextEle() as object, data)
     },
     getTextEle() {
-      return this.$refs.textAreaBox
+      return this.$refs.dewEditorTextarea
     },
     changePreviewStatus(data: boolean) {
       this.openPreview = data
@@ -104,17 +104,32 @@ export default defineComponent({
       )
     },
     textareaScroll(event: any) {
-      console.log(event)
       const target = event.target
-      const scrollHeight = target.scrollHeight
+
+      // 元素总高度
+      const totalHeight = target.scrollHeight
+      // 可视区域的高度
+      const clientHeight = target.clientHeight
+
+      // 有效高度
+      const validHeight = totalHeight - clientHeight
+      // 滚动条滚动的高度
       const scrollTop = target.scrollTop
-      console.log((scrollTop / scrollHeight) * 100)
+
+      this.targetScrollTo(this.$refs.previewScroll, (scrollTop / validHeight) * 100)
     },
-    previewScroll(event: any) {
-      const target = event.target
-      const scrollHeight = target.scrollHeight
-      const scrollTop = target.scrollTop
-      console.log((scrollTop / scrollHeight) * 100)
+
+    targetScrollTo(ele: any, percentage: number) {
+      // 元素总高度
+      const totalHeight = ele.scrollHeight
+      // 可视区域的高度
+      const clientHeight = ele.clientHeight
+
+      // 有效高度
+      const validHeight = totalHeight - clientHeight
+      // 滚动条滚动的高度
+      const scrollTop = (percentage / 100) * validHeight
+      ele.scrollTo(0, scrollTop)
     },
   },
   computed: {
@@ -159,6 +174,7 @@ export default defineComponent({
       resize: none;
       outline: none;
       font-size: 16px;
+      line-height: 1.5;
     }
     .dew-editor-preview-area {
       width: 100%;
