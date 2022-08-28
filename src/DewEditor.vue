@@ -18,7 +18,7 @@
           <textarea @scroll="textareaScroll" ref="dewEditorTextarea" v-model="markdown"></textarea>
         </template>
         <template v-slot:rightSection>
-          <div ref="previewScroll" class="dew-editor-preview-area" v-html="htmlContent"></div>
+          <div ref="previewScroll" class="dew-editor-preview-area markdown-body" v-html="htmlContent"></div>
         </template>
       </DewEditorContainer>
     </div>
@@ -34,6 +34,7 @@ import DewEditorContainer from './components/DewEditorContainer.vue'
 import MarkdownIt from 'markdown-it'
 import { copyTextToClipboard, insertTextIntoEditor, isExistSelection } from './libs/dewEditor'
 import { debounce } from './utils/tools'
+import '@/assets/markdown.css'
 const markdownIt = new MarkdownIt({
   html: true, // Enable HTML tags in source
   xhtmlOut: true, // Use '/' to close single tags (<br />).
@@ -59,8 +60,7 @@ export default defineComponent({
       clipboardValue: '',
       openPreview: true,
       editorTextAreaHeight: 0,
-      markdown:
-        'a\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\na\n',
+      markdown: '',
     }
   },
   components: {
@@ -153,8 +153,10 @@ export default defineComponent({
   .dew-editor-menu-container {
     width: 100%;
     height: 30px;
+    line-height: 30px;
     display: flex;
     flex-direction: row;
+    padding: 0 20px;
     border-bottom: 1px solid #999;
     .dww-editor-menu-item {
       float: left;
