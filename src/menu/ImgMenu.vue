@@ -1,6 +1,6 @@
 <template>
   <div class="img-menu-container">
-    <div class="img-menu-icon-container" @click="insertContent">
+    <div class="img-menu-icon-container" @click="toggleImgMenuStatus">
       <svg
         t="1660833968170"
         class="icon"
@@ -21,30 +21,75 @@
         ></path>
       </svg>
     </div>
-    <div class="img-menu-operation-container">
+    <div class="img-menu-operation-container" v-if="showImgDialog">
       <div class="img-menu-nav">
         <div class="img-menu-nav-item img-menu-upload-nav">上传图片</div>
         <div class="img-menu-nav-item img-menu-pic-bed">图床图片</div>
       </div>
       <div class="img-menu-insert-way-container">
         <div v-if="uploadFileWay" class="img-insert-way-item upload-file-way">
-          <UploadFile></UploadFile>
+          <UploadFile @file-list-change="fileListChange"></UploadFile>
         </div>
         <div v-if="!uploadFileWay" class="img-insert-way-item"></div>
       </div>
+      <div class="img-menu-bottom-option">
+        <button class="img-menu-bottom-cancel" @click="toggleImgMenuStatus">取消</button
+        ><button class="img-menu-bottom-confirm">确定</button>
+      </div>
     </div>
-    <div class="img-menu-mask"></div>
+    <div class="img-menu-mask" v-if="showImgDialog"></div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { defineEmits, ref } from 'vue'
 import UploadFile from '@/components/upload/UploadFile.vue'
+import axios from 'axios'
+import { imgUploadApi } from '@/config/config'
+
 const emit = defineEmits(['insertContent'])
+const showImgDialog = ref<boolean>(false)
 const uploadFileWay = ref<boolean>(true)
+
 const insertContent = (event: any) => {
   event.preventDefault()
   emit('insertContent', 'add img')
+}
+
+function fileListChange(files: File[]) {
+  uploadFile(files)
+}
+
+function uploadFile(files: File[], data?: { [key: string]: any }) {
+  let formData = new FormData() //  构造表单实例对象
+
+  if (data) {
+    for (const key in data) {
+      formData.append(key, data[key])
+    }
+  }
+
+  for (let i = 0, len = files.length; i < len; i++) {
+    formData.append('files', files[i])
+  }
+  axios({
+    url: imgUploadApi,
+    method: 'POST',
+    data: formData,
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  })
+    .then((res: any) => {
+      console.log(res)
+    })
+    .catch((err: any) => {
+      console.log(err)
+    })
+}
+
+function toggleImgMenuStatus() {
+  showImgDialog.value = !showImgDialog.value
 }
 </script>
 
@@ -92,6 +137,28 @@ const insertContent = (event: any) => {
         width: 100%;
         height: 100%;
       }
+    }
+  }
+  .img-menu-bottom-option {
+    display: flex;
+    padding: 20px;
+    justify-content: flex-end;
+    button {
+      background-color: none;
+      border: none;
+      outline: none;
+      padding: 8px 20px;
+      margin-right: 20px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .img-menu-bottom-cancel {
+      background-color: #eee;
+    }
+    .img-menu-bottom-confirm {
+      background-color: #1296db;
+      color: #ffffff;
     }
   }
 

@@ -24,23 +24,36 @@
       </svg>
       <p>点击上传文件或将文件拖入该区域</p>
     </div>
-    <input class="upload-file-input" ref="input" type="file" multiple />
+    <input class="upload-file-input" ref="input" type="file" multiple @change="fileChange" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, defineEmits } from 'vue'
 const input = ref()
+const emit = defineEmits(['file-list-change'])
+
 const fileDrop = (event: any) => {
-  console.log(event.dataTransfer.files)
+  emitFile(event.dataTransfer.files)
 }
 
 const onDragover = (event: any) => {
-  console.log('aa')
+  // console.log('aa')
 }
 
 const handlerClick = (event: any) => {
   input.value.click()
+}
+
+function fileChange(e: any) {
+  const files = e.target.files
+  if (files.length) {
+    emitFile(files)
+  }
+}
+
+function emitFile(files: File[]) {
+  emit('file-list-change', files)
 }
 </script>
 
