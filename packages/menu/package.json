@@ -1,5 +1,5 @@
 {
-  "name": "dew-editor",
+  "name": "@dew-editor/menus",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,9 +8,5 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@dew-editor/menus": "workspace:^1.0.0",
-    "@editor/components": "workspace:^1.0.0"
-  }
+  "license": "ISC"
 }

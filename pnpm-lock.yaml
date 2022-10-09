@@ -4,9 +4,11 @@ importers:
 
   .:
     specifiers:
+      '@dew-editor/utils': workspace:^1.0.0
       typescript: ^4.8.4
       vue: ^3.2.13
     dependencies:
+      '@dew-editor/utils': link:packages/utils
       vue: 3.2.40
     devDependencies:
       typescript: 4.8.4
@@ -23,8 +25,10 @@ importers:
 
   packages/dew-editor:
     specifiers:
+      '@dew-editor/menus': workspace:^1.0.0
       '@editor/components': workspace:^1.0.0
     dependencies:
+      '@dew-editor/menus': link:../menu
       '@editor/components': link:../components
 
   play:
