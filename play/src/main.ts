@@ -6,9 +6,10 @@ const app = createApp(App)
 
 const imgMenuName = dewImgMenu({
   app,
-  httpRequeest: (options) => {
+  httpRequest: (options) => {
     console.log('aaaaaaa')
     console.log(options)
+    options.onSuccess(['1', '2', '3'])
   },
 })
 

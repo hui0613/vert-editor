@@ -65,8 +65,6 @@ onMounted(() => {
 })
 
 const htmlContent = computed(() => {
-  console.log(markdown.value)
-  console.log(markdownIt.render(markdown.value))
   return markdownIt.render(markdown.value)
 })
 
@@ -80,6 +78,7 @@ function insertContent(data: string) {
   }
   // 插入到边际区域的光标位置
   insertTextIntoEditor(getTextEle() as object, data)
+  markdown.value = (getTextEle() as any).value
 }
 
 function changePreviewStatus() {

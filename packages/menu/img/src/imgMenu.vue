@@ -48,7 +48,7 @@ import UploadFile from '../../upload/UploadFile.vue'
 const emit = defineEmits(['insertContent'])
 
 const props = defineProps({
-  httpRequeest: {
+  httpRequest: {
     type: Function,
   },
 })
@@ -66,7 +66,15 @@ function fileListChange(files: File[]) {
 }
 
 function uploadFile(files: File[], data?: { [key: string]: any }) {
-  props.httpRequeest && props.httpRequeest(files)
+  const options = {
+    files: files,
+    onSuccess: (linkStr: string[]) => {
+      linkStr.forEach((item: string) => {
+        emit('insertContent', `![](${item})`)
+      })
+    },
+  }
+  props.httpRequest && props.httpRequest(options)
 }
 
 function toggleImgMenuStatus() {

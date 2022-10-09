@@ -3,7 +3,7 @@ import imgMenu from './src/imgMenu.vue'
 
 interface ImgMenuOptions {
   app: App
-  httpRequeest: (params: any) => any
+  httpRequest: (params: any) => any
 }
 
 function renderMenu(options: ImgMenuOptions) {

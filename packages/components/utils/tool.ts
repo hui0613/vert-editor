@@ -7,9 +7,9 @@ export function insertTextIntoEditor(ele: { [key: string]: any }, text: string) 
   const tempValue = ele.value
 
   // 如果选中了一段文本，则会进行替换，如果没有选中的文本，则直接插入
-  ele.value = tempValue.substring(0, startPos) + text + tempValue.substring(endPos)
-  ele.selectionStart = startPos
-  ele.selectionEnd = startPos + text.length
+  ele.value = tempValue.substring(0, startPos) + text + ' ' + tempValue.substring(endPos)
+  ele.selectionStart = startPos + text.length + 1
+  ele.selectionEnd = startPos + text.length + 1
 }
 
 export function isExistSelection(textareaDom: { [key: string]: any }) {
