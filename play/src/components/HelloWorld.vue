@@ -33,7 +33,6 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import {a} from 'dew-editor'
 
 export default defineComponent({
   name: 'HelloWorld',
@@ -41,9 +40,6 @@ export default defineComponent({
     msg: String,
   },
 
-  mounted(){
-    console.log(a)
-  }
 });
 </script>
 
