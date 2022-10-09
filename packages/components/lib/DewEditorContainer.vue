@@ -13,14 +13,13 @@
   </div>
 </template>
 
-
 <script lang="ts" setup>
-import {defineProps} from 'vue'
+import { defineProps } from 'vue'
 const props = defineProps({
   editorTextAreaHeight: {
-      type: Number,
-      default: 0
-    }
+    type: Number,
+    default: 0,
+  },
 })
 </script>
 

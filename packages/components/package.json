@@ -9,5 +9,10 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@types/markdown-it": "^12.2.3",
+    "clipboard": "^2.0.11",
+    "markdown-it": "^13.0.1"
+  }
 }
