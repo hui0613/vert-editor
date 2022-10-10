@@ -34,6 +34,7 @@ importers:
       fs-extra: 10.1.0
       typescript: 4.8.4
       unbuild: 0.8.11
+      vue-tsc: 1.0.3_typescript@4.8.4
 
   internal/build:
     specifiers:
@@ -52,6 +53,7 @@ importers:
       ts-morph: ^16.0.0
     devDependencies:
       '@dew-editor/build-utils': link:../build-utils
+      '@rollup/plugin-json': 4.1.0_rollup@2.79.1
       '@rollup/plugin-json': 4.1.0_rollup@2.79.1
       '@types/gulp': 4.0.9
       '@vue/compiler-sfc': 3.2.39
@@ -1573,6 +1575,7 @@ packages:
       '@rollup/pluginutils': 3.1.0_rollup@2.79.1
       rollup: 2.79.1
     dev: true
+    dev: true
 
   /@rollup/plugin-node-resolve/13.3.0_rollup@2.79.1:
     resolution: {integrity: sha512-Lus8rbUo1eEcnS4yTFKLZrVumLPY+YayBdWXgFSHYhTT2iJbMhoaaBL3xl5NCdeRytErGr8tZ0L71BMRmnlwSw==}
@@ -1609,6 +1612,7 @@ packages:
       estree-walker: 1.0.1
       picomatch: 2.3.1
       rollup: 2.79.1
+    dev: true
     dev: true
 
   /@rollup/pluginutils/4.2.1:
@@ -1801,6 +1805,7 @@ packages:
     dependencies:
       '@types/linkify-it': 3.0.2
       '@types/mdurl': 1.0.2
+    dev: true
     dev: true
 
   /@types/mdurl/1.0.2:
@@ -5760,6 +5765,7 @@ packages:
     os: [darwin]
     requiresBuild: true
     dev: true
+    dev: true
     optional: true
 
   /function-bind/1.1.1:
@@ -8943,6 +8949,7 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
+    dev: true
 
   /run-parallel/1.2.0:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}
@@ -10314,6 +10321,7 @@ packages:
   /vue-template-es2015-compiler/1.9.1:
     resolution: {integrity: sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==}
     dev: true
+>>>>>>> 02f292f (【更新】添加声明文件生成)
 
   /vue/3.2.20:
     resolution: {integrity: sha512-81JjEP4OGk9oO8+CU0h2nFPGgJBm9mNa3kdCX2k6FuRdrWrC+CNe+tOnuIeTg8EWwQuI+wwdra5Q7vSzp7p4Iw==}
