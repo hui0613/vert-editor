@@ -56,25 +56,3 @@ function emitFile(files: File[]) {
   emit('file-list-change', files)
 }
 </script>
-
-<style lang="scss" scoped>
-.upload-file-container {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  .upload-file-area {
-    width: 60%;
-    height: 50%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    position: absolute;
-    text-align: center;
-    cursor: pointer;
-    border: 1px solid #1296db;
-  }
-  .upload-file-input {
-    display: none;
-  }
-}
-</style>
