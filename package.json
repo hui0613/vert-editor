@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "private": true,
+  "private": true,
   "main": "index.js",
   "scripts": {
     "dev": "pnpm -C play serve",
