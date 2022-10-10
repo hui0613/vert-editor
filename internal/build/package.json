@@ -12,8 +12,9 @@
   "license": "ISC",
   "devDependencies": {
     "@dew-editor/build-utils": "workspace:^1.0.0",
+    "@rollup/plugin-json": "^4.1.0",
     "@types/gulp": "^4.0.9",
-    "@vue/compiler-sfc": "^3.2.40",
+    "@vue/compiler-sfc": "3.2.39",
     "esbuild": "^0.15.10",
     "fast-glob": "^3.2.12",
     "gulp": "^4.0.2",
@@ -21,9 +22,7 @@
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-esbuild": "^4.10.1",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-vue": "^6.0.0"
-  },
-  "dependencies": {
-    "@rollup/plugin-json": "^4.1.0"
+    "rollup-plugin-vue": "^6.0.0",
+    "ts-morph": "^16.0.0"
   }
 }

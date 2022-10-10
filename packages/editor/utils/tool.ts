@@ -1,4 +1,4 @@
-import Clipboard from 'clipboard'
+// import Clipboard from 'clipboard'
 
 export function insertTextIntoEditor(ele: { [key: string]: any }, text: string) {
   ele.focus()
@@ -17,19 +17,11 @@ export function isExistSelection(textareaDom: { [key: string]: any }) {
 }
 
 export function copyTextToClipboard(className: string) {
-  const clipboard = new Clipboard(className)
-
-  clipboard.on('success', () => {
-    console.log('复制到剪切板成功')
-  })
-  clipboard.on('error', (err: any) => {
-    console.log('复制到剪切板失败')
-    console.log(err)
-  })
+  //
 }
 
 export function debounce(fn: any, delay: number, callback?: (args: any) => any): (args: any) => any {
-  let timer: number | null = null
+  let timer: NodeJS.Timeout | null = null
   return function (this: any, args: any) {
     if (timer) {
       clearTimeout(timer)

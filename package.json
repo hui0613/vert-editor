@@ -2,12 +2,14 @@
   "name": "@dew-editor",
   "version": "1.0.0",
   "description": "",
+  "private": true,
   "main": "index.js",
   "scripts": {
     "dev": "pnpm -C play serve",
     "build": "pnpm -C internal/build build",
     "clean": "pnpm run clean:dist && pnpm run -r --parallel clean",
-    "clean:dist": "rimraf dist"
+    "clean:dist": "rimraf dist",
+    "build:types": "vue-tsc --declaration --emitDeclarationOnly"
   },
   "keywords": [],
   "author": "",
@@ -17,13 +19,13 @@
     "@types/markdown-it": "^12.2.3",
     "@types/node": "^18.8.3",
     "fs-extra": "^10.1.0",
-    "typescript": "^4.8.4",
+    "typescript": "^4.8.3",
     "unbuild": "^0.8.11"
   },
   "dependencies": {
     "@dew-editor/utils": "workspace:^1.0.0",
     "@esbuild-kit/cjs-loader": "^2.4.0",
     "rimraf": "^3.0.2",
-    "vue": "^3.2.13"
+    "vue": "^3.2.40"
   }
 }
