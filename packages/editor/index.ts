@@ -1,9 +1,8 @@
-import DewEidtor from './DewEditor.vue'
+import DewEditor from './DewEditor.vue'
 import { App, h } from 'vue'
-import './assets/markdown.css'
 
 function renderEditor(list: any) {
-  return h(DewEidtor, { menuList: list })
+  return h(DewEditor, { menuList: list })
 }
 
 function dewEditor(options: any) {

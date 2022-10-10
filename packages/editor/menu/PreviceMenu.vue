@@ -59,9 +59,3 @@ export default defineComponent({
   },
 })
 </script>
-
-<style lang="scss" scoped>
-.dew-markdown-preview-menu {
-  cursor: pointer;
-}
-</style>

@@ -4,17 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "pnpm -C play serve"
+    "dev": "pnpm -C play serve",
+    "build": "pnpm -C internal/build build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "typescript": "^4.8.4"
+    "@types/markdown-it": "^12.2.3",
+    "@types/node": "^18.8.3",
+    "typescript": "^4.8.4",
+    "unbuild": "^0.8.11"
   },
   "dependencies": {
     "@dew-editor/utils": "workspace:^1.0.0",
+    "@esbuild-kit/cjs-loader": "^2.4.0",
     "vue": "^3.2.13"
   }
 }

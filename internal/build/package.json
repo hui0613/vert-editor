@@ -1,0 +1,29 @@
+{
+  "name": "@dew-editor/build",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "gulp --require @esbuild-kit/cjs-loader -f gulpfile.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@dew-editor/build-utils": "workspace:^1.0.0",
+    "@types/gulp": "^4.0.9",
+    "@vue/compiler-sfc": "^3.2.40",
+    "esbuild": "^0.15.10",
+    "fast-glob": "^3.2.12",
+    "gulp": "^4.0.2",
+    "rollup": "^2.79.1",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-esbuild": "^4.10.1",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-vue": "^6.0.0"
+  },
+  "dependencies": {
+    "@rollup/plugin-json": "^4.1.0"
+  }
+}
