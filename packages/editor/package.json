@@ -1,5 +1,5 @@
 {
-  "name": "@editor/components",
+  "name": "@editor/editor",
   "version": "1.0.0",
   "description": "",
   "main": "index.ts",
@@ -10,8 +10,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
+  "peerDependencies": {
     "clipboard": "^2.0.11",
-    "markdown-it": "^13.0.1"
+    "markdown-it": "^13.0.1",
+    "vue": "^3.2.0"
   }
 }

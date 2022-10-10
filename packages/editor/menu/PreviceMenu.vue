@@ -46,6 +46,11 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'DewPreviewMenu',
+  props: {
+    a: {
+      type: Number,
+    },
+  },
   data() {
     return {
       openPreview: true,
