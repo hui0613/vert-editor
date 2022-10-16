@@ -16,6 +16,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@dew-editor/editor": "workspace:^1.0.0",
+    "@dew-editor/menus": "workspace:^1.0.0",
     "@types/fs-extra": "^9.0.13",
     "@types/markdown-it": "^12.2.3",
     "@types/node": "^18.8.3",

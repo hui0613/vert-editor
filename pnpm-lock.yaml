@@ -4,6 +4,8 @@ importers:
 
   .:
     specifiers:
+      '@dew-editor/editor': workspace:^1.0.0
+      '@dew-editor/menus': workspace:^1.0.0
       '@dew-editor/utils': workspace:^1.0.0
       '@esbuild-kit/cjs-loader': ^2.4.0
       '@types/fs-extra': ^9.0.13
@@ -20,6 +22,8 @@ importers:
       rimraf: 3.0.2
       vue: 3.2.20
     devDependencies:
+      '@dew-editor/editor': link:packages/editor
+      '@dew-editor/menus': link:packages/menu
       '@types/fs-extra': 9.0.13
       '@types/markdown-it': 12.2.3
       '@types/node': 18.11.0
@@ -61,12 +65,7 @@ importers:
     specifiers: {}
 
   packages/dew-editor:
-    specifiers:
-      '@dew-editor/menus': workspace:^1.0.0
-      '@editor/editor': workspace:^1.0.0
-    dependencies:
-      '@dew-editor/menus': link:../menu
-      '@editor/editor': link:../editor
+    specifiers: {}
 
   packages/editor:
     specifiers: {}

@@ -1,1 +1,1 @@
-export * from './tasks/modules'
+export * from './tasks'

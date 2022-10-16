@@ -9,10 +9,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "@dew-editor/menus": "workspace:^1.0.0",
-    "@editor/editor": "workspace:^1.0.0"
-  },
   "peerDependencies": {
     "clipboard": "^2.0.11",
     "markdown-it": "^13.0.1",

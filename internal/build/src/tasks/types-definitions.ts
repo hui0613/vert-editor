@@ -1,3 +1,4 @@
+import { pathRewriter } from './../utils/pkg'
 import path from 'path'
 import fs from 'fs'
 import glob from 'fast-glob'
@@ -5,7 +6,7 @@ import { Project } from 'ts-morph'
 import { parse, compileScript } from '@vue/compiler-sfc'
 import { projRoot, buildRoot, pkgRoot, deRoot, excludeFiles } from '@dew-editor/build-utils'
 
-let index = 1
+const index = 1
 
 export async function generateTypes() {
   // 这部分内容具体可以查阅 ts-morph 的文档
@@ -58,9 +59,6 @@ export async function generateTypes() {
             content += compiled.content
           }
 
-          console.log('--------------')
-          console.log(content)
-
           const lang = scriptSetup?.lang || script?.lang || 'js'
           const sourceFile = project.createSourceFile(`${path.relative(process.cwd(), file)}.${lang}`, content)
           //@ts-ignore
@@ -95,11 +93,9 @@ export async function generateTypes() {
 
     for (const outputFile of emitOutput.getOutputFiles()) {
       const filePath = outputFile.getFilePath()
-      console.log('-----------------')
-      console.log(filePath)
 
       await fs.promises.mkdir(path.dirname(filePath), { recursive: true })
-      await fs.promises.writeFile(filePath, outputFile.getText(), 'utf8')
+      await fs.promises.writeFile(filePath, pathRewriter('esm')(outputFile.getText()), 'utf8')
     }
   }
 }
