@@ -5,31 +5,36 @@ importers:
   .:
     specifiers:
       '@dew-editor/editor': workspace:^1.0.0
-      '@dew-editor/menus': workspace:^1.0.0
+      '@dew-editor/menu': workspace:^1.0.0
       '@dew-editor/utils': workspace:^1.0.0
       '@esbuild-kit/cjs-loader': ^2.4.0
       '@types/fs-extra': ^9.0.13
       '@types/markdown-it': ^12.2.3
       '@types/node': ^18.8.3
+      dew-editor: workspace:^1.0.0
       fs-extra: ^10.1.0
       rimraf: ^3.0.2
       typescript: ^4.8.3
       unbuild: ^0.8.11
       vue: 3.2.20
     dependencies:
+      '@dew-editor/menu': link:packages/menu
       '@dew-editor/utils': link:packages/utils
       '@esbuild-kit/cjs-loader': 2.4.0
+      dew-editor: link:dist/dew-editor
       rimraf: 3.0.2
       vue: 3.2.20
     devDependencies:
       '@dew-editor/editor': link:packages/editor
-      '@dew-editor/menus': link:packages/menu
       '@types/fs-extra': 9.0.13
       '@types/markdown-it': 12.2.3
       '@types/node': 18.11.0
       fs-extra: 10.1.0
       typescript: 4.8.4
       unbuild: 0.8.11
+
+  dist/dew-editor:
+    specifiers: {}
 
   internal/build:
     specifiers:
@@ -123,7 +128,7 @@ importers:
       vue: 3.2.20
     dependencies:
       core-js: 3.25.5
-      dew-editor: link:../packages/dew-editor
+      dew-editor: link:../dist/dew-editor
       vue: 3.2.20
     devDependencies:
       '@typescript-eslint/eslint-plugin': 5.40.0_cwdmytl2veedn66no7wptweoty
@@ -1330,8 +1335,8 @@ packages:
       regenerator-runtime: 0.13.10
     dev: true
 
-  /@babel/standalone/7.19.3:
-    resolution: {integrity: sha512-zSdDx28L6f27Y59OMrl8mBbtyB/cpIGlHm7wVOHlcmUTpD10AiUILkekZATkkpsuTagTWezdJmUaeY8P2SONUA==}
+  /@babel/standalone/7.19.5:
+    resolution: {integrity: sha512-H2eXpo1ZfTZhBwsCbfSKHrjTb934laSas14hdjULLSKmLxU4B7kazQKm3mjpDuH/HyPmRq1cbrGL7223M7EDFw==}
     engines: {node: '>=6.9.0'}
     dev: true
 
@@ -3003,7 +3008,7 @@ packages:
     resolution: {integrity: sha512-WLbYiXzD3y/ATLZFufV/rZvWdZOs+Z/+5v1rBZ463Jn398pa6kcde27cvozYnBoxXblGZTFfoPpsaEw0orU5BA==}
     engines: {node: '>=0.10.0'}
     dependencies:
-      buffer-equal: 1.0.0
+      buffer-equal: 1.0.1
     dev: true
 
   /arch/2.2.0:
@@ -3162,7 +3167,7 @@ packages:
       postcss: ^8.1.0
     dependencies:
       browserslist: 4.21.4
-      caniuse-lite: 1.0.30001419
+      caniuse-lite: 1.0.30001420
       fraction.js: 4.2.0
       normalize-range: 0.1.2
       picocolors: 1.0.0
@@ -3374,15 +3379,15 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001419
+      caniuse-lite: 1.0.30001420
       electron-to-chromium: 1.4.283
       node-releases: 2.0.6
       update-browserslist-db: 1.0.10_browserslist@4.21.4
     dev: true
 
-  /buffer-equal/1.0.0:
-    resolution: {integrity: sha512-tcBWO2Dl4e7Asr9hTGcpVrCe+F7DubpmqWCTbj4FHLmjqO2hIaC383acQubWtRJhdceqs5uBHs6Es+Sk//RKiQ==}
-    engines: {node: '>=0.4.0'}
+  /buffer-equal/1.0.1:
+    resolution: {integrity: sha512-QoV3ptgEaQpvVwbXdSO39iqPQTCxSF7A5U99AxbHYqUdCizL/lH2Z0A2y6nbZucxMEOtNyZfG2s6gsVugGpKkg==}
+    engines: {node: '>=0.4'}
     dev: true
 
   /buffer-from/1.1.2:
@@ -3476,13 +3481,13 @@ packages:
     resolution: {integrity: sha512-bsTwuIg/BZZK/vreVTYYbSWoe2F+71P7K5QGEX+pT250DZbfU1MQ5prOKpPR+LL6uWKK3KMwMCAS74QB3Um1uw==}
     dependencies:
       browserslist: 4.21.4
-      caniuse-lite: 1.0.30001419
+      caniuse-lite: 1.0.30001420
       lodash.memoize: 4.1.2
       lodash.uniq: 4.5.0
     dev: true
 
-  /caniuse-lite/1.0.30001419:
-    resolution: {integrity: sha512-aFO1r+g6R7TW+PNQxKzjITwLOyDhVRLjW0LcwS/HCZGUUKTGNp9+IwLC4xyDSZBygVL/mxaFR3HIV6wEKQuSzw==}
+  /caniuse-lite/1.0.30001420:
+    resolution: {integrity: sha512-OnyeJ9ascFA9roEj72ok2Ikp7PHJTKubtEJIQ/VK3fdsS50q4KWy+Z5X0A1/GswEItKX0ctAp8n4SYDE7wTu6A==}
     dev: true
 
   /case-sensitive-paths-webpack-plugin/2.4.0:
@@ -6151,8 +6156,8 @@ packages:
       parse-passwd: 1.0.0
     dev: true
 
-  /hookable/5.3.0:
-    resolution: {integrity: sha512-4gTA2q08HT8G32uIW7Jpro3rSXgT2ZTM8R6+r7H7joq90eZlqFPPTvHD6w8WZUohIrbXbDperL96ilb6dkNxNw==}
+  /hookable/5.4.1:
+    resolution: {integrity: sha512-i808BglQ1OuSIcgPSZoWsDapCMLXKe5wLS6XZvIXpaBWdWLUZARM8vOLayu6cXewj5TSbaZaMzKnq+pRnfscEQ==}
     dev: true
 
   /hosted-git-info/2.8.9:
@@ -7364,7 +7369,7 @@ packages:
       acorn: 8.8.0
       pathe: 0.3.9
       pkg-types: 0.3.5
-      ufo: 0.8.5
+      ufo: 0.8.6
     dev: true
 
   /module-alias/2.2.2:
@@ -9844,8 +9849,8 @@ packages:
     hasBin: true
     dev: true
 
-  /ufo/0.8.5:
-    resolution: {integrity: sha512-e4+UtA5IRO+ha6hYklwj6r7BjiGMxS0O+UaSg9HbaTefg4kMkzj4tXzEBajRR+wkxf+golgAWKzLbytCUDMJAA==}
+  /ufo/0.8.6:
+    resolution: {integrity: sha512-fk6CmUgwKCfX79EzcDQQpSCMxrHstvbLswFChHS0Vump+kFkw7nJBfTZoC1j0bOGoY9I7R3n2DGek5ajbcYnOw==}
     dev: true
 
   /unbuild/0.8.11:
@@ -9863,7 +9868,7 @@ packages:
       defu: 6.1.0
       esbuild: 0.15.11
       globby: 13.1.2
-      hookable: 5.3.0
+      hookable: 5.4.1
       jiti: 1.16.0
       magic-string: 0.26.7
       mkdirp: 1.0.4
@@ -9972,7 +9977,7 @@ packages:
     resolution: {integrity: sha512-2Sre5A1a7G61bjaAKZnSFaVgbJMwwbbYQpJFH69hAYcDfN7kIaktlSphS02XJilz4+/jR1tsJ5MHo1oMoCezxg==}
     dependencies:
       '@babel/core': 7.19.3
-      '@babel/standalone': 7.19.3
+      '@babel/standalone': 7.19.5
       '@babel/types': 7.19.4
       scule: 0.3.2
     transitivePeerDependencies:

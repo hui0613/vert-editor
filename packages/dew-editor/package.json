@@ -2,7 +2,23 @@
   "name": "dew-editor",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "module": "es/index.mjs",
+  "types": "es/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./lib/index.js",
+      "import": "./es/index.mjs",
+      "types": "./es/index.d.ts"
+    },
+    "./es": "./es/index.mjs",
+    "./lib": "./lib/index.js",
+    "./es/*.mjs": "./es/*.mjs",
+    "./es/*": "./es/*.mjs",
+    "./lib/*.js": "./lib/*.js",
+    "./lib/*": "./lib/*.js",
+    "./*": "./*"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

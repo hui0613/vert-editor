@@ -13,11 +13,10 @@
     "postinstall": "pnpm run -r --parallel stub"
   },
   "keywords": [],
-  "author": "",
+  "author": "hui0613",
   "license": "ISC",
   "devDependencies": {
     "@dew-editor/editor": "workspace:^1.0.0",
-    "@dew-editor/menus": "workspace:^1.0.0",
     "@types/fs-extra": "^9.0.13",
     "@types/markdown-it": "^12.2.3",
     "@types/node": "^18.8.3",
@@ -26,8 +25,10 @@
     "unbuild": "^0.8.11"
   },
   "dependencies": {
+    "@dew-editor/menu": "workspace:^1.0.0",
     "@dew-editor/utils": "workspace:^1.0.0",
     "@esbuild-kit/cjs-loader": "^2.4.0",
+    "dew-editor": "workspace:^1.0.0",
     "rimraf": "^3.0.2",
     "vue": "3.2.20"
   }

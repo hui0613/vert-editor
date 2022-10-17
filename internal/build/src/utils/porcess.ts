@@ -18,5 +18,8 @@ export const run = async (command: string, cwd: string = projRoot) =>
       if (code === 0) resolve()
       else reject(new Error(`Command failed. \n Command: ${command} \n Code: ${code}`))
     })
+    app.on('error', (res) => {
+      console.log(res)
+    })
     process.on('exit', onProcessExit)
   })

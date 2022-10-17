@@ -4,7 +4,7 @@ export const pathRewriter = (module: Module) => {
   const config = buildConfig[module]
 
   return (id: string) => {
-    id = id.replace(/@dew-editor\//g, 'dew-editor/')
+    id = id.replace(/@dew-editor\//g, 'dew-editor/es/')
     return id
   }
 }

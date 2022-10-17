@@ -43,7 +43,7 @@
 
 <script setup lang="ts">
 import { defineEmits, ref, defineProps } from 'vue'
-import UploadFile from '../../upload/UploadFile.vue'
+import UploadFile from '../../upload/src/UploadFile.vue'
 
 const emit = defineEmits(['insertContent'])
 

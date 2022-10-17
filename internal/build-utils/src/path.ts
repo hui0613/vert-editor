@@ -7,6 +7,6 @@ export const deRoot = resolve(pkgRoot, 'dew-editor')
 
 /** output */
 
-export const buildRoot = resolve(projRoot, 'dist')
+export const buildOutput = resolve(projRoot, 'dist')
 
-export const deOutPut = resolve(buildRoot, 'dew-editor')
+export const deOutPut = resolve(buildOutput, 'dew-editor')

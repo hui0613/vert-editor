@@ -4,7 +4,7 @@ import fs from 'fs'
 import glob from 'fast-glob'
 import { Project } from 'ts-morph'
 import { parse, compileScript } from '@vue/compiler-sfc'
-import { projRoot, buildRoot, pkgRoot, deRoot, excludeFiles } from '@dew-editor/build-utils'
+import { projRoot, buildOutput, pkgRoot, deRoot, excludeFiles } from '@dew-editor/build-utils'
 
 const index = 1
 
@@ -18,7 +18,7 @@ export async function generateTypes() {
       baseUrl: projRoot,
       noEmitOnError: false,
       noImplicitAny: false,
-      outDir: path.resolve(buildRoot, 'types'), // 可以设置自定义的打包文件夹，如 'types'
+      outDir: path.resolve(buildOutput, 'types'), // 可以设置自定义的打包文件夹，如 'types'
     },
     tsConfigFilePath: path.resolve(projRoot, 'tsconfig.json'),
     skipAddingFilesFromTsConfig: true,
@@ -61,21 +61,16 @@ export async function generateTypes() {
 
           const lang = scriptSetup?.lang || script?.lang || 'js'
           const sourceFile = project.createSourceFile(`${path.relative(process.cwd(), file)}.${lang}`, content)
-          //@ts-ignore
           sourceFiles.push(sourceFile)
         }
       } else {
         // 如果是 ts 文件则直接添加即可
-        //@ts-ignore
         sourceFiles.push(project.addSourceFileAtPath(file))
       }
     }),
     ...dewFiles.map((file) => {
       const content = fs.readFileSync(path.resolve(deRoot, file)).toString()
-      sourceFiles.push(
-        // @ts-ignore
-        project.createSourceFile(path.resolve(pkgRoot, file), content)
-      )
+      sourceFiles.push(project.createSourceFile(path.resolve(pkgRoot, file), content))
     }),
   ])
 
@@ -88,7 +83,6 @@ export async function generateTypes() {
 
   // 随后将解析完的文件写道打包路径
   for (const sourceFile of sourceFiles) {
-    //@ts-ignore
     const emitOutput = sourceFile.getEmitOutput()
 
     for (const outputFile of emitOutput.getOutputFiles()) {
