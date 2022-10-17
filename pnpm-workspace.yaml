@@ -1,4 +1,4 @@
-packages
-  - "packages/**"
-  - "play"
-  - "internal/**"
+packages:
+  - 'packages/**'
+  - play
+  - 'internal/**'

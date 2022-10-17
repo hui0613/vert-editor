@@ -46,6 +46,7 @@ const markdownIt = new MarkdownIt({
 const props = defineProps({
   menuList: {
     type: Array,
+    default: () => [],
   },
 })
 

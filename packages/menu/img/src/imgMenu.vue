@@ -24,7 +24,7 @@
     <div class="img-menu-operation-container" v-if="showImgDialog">
       <div class="img-menu-nav">
         <div class="img-menu-nav-item img-menu-upload-nav">上传图片</div>
-        <div class="img-menu-nav-item img-menu-pic-bed">图床图片</div>
+        <!-- <div class="img-menu-nav-item img-menu-pic-bed">图床图片</div> -->
       </div>
       <div class="img-menu-insert-way-container">
         <div v-if="uploadFileWay" class="img-insert-way-item upload-file-way">
@@ -34,7 +34,7 @@
       </div>
       <div class="img-menu-bottom-option">
         <button class="img-menu-bottom-cancel" @click="toggleImgMenuStatus">取消</button
-        ><button class="img-menu-bottom-confirm">确定</button>
+        ><button class="img-menu-bottom-confirm" @click="toggleImgMenuStatus">确定</button>
       </div>
     </div>
     <div class="img-menu-mask" v-if="showImgDialog"></div>
@@ -78,6 +78,7 @@ function uploadFile(files: File[], data?: { [key: string]: any }) {
 }
 
 function toggleImgMenuStatus() {
+  console.log('-----')
   showImgDialog.value = !showImgDialog.value
 }
 </script>

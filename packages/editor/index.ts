@@ -1,11 +1,15 @@
 import DewEditor from './DewEditor.vue'
 import { App, h } from 'vue'
 
-function renderEditor(list: any) {
+export interface EditorOptions {
+  menuList: string[]
+}
+
+function renderEditor(list: string[]) {
   return h(DewEditor, { menuList: list })
 }
 
-function dewEditor(options: any) {
+function dewEditor(options: EditorOptions) {
   const menuList = options.menuList
   return {
     install(app: App) {

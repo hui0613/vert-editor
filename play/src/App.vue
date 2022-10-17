@@ -14,6 +14,7 @@ export default defineComponent({
 
 <style lang="scss">
 .container {
-  height: 99vh;
+  height: 98vh;
+  border: 1px solid red;
 }
 </style>

@@ -1,5 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+import '@dew-editor/theme-chalk/src/editor/DewEditor.scss'
+import '@dew-editor/theme-chalk/src/menu/imgMenu.scss'
 import { dewEditor, dewImgMenu } from 'dew-editor'
 
 const app = createApp(App)
@@ -7,8 +9,6 @@ const app = createApp(App)
 const imgMenuName = dewImgMenu({
   app,
   httpRequest: (options) => {
-    console.log('aaaaaaa')
-    console.log(options)
     options.onSuccess(['1', '2', '3'])
   },
 })
