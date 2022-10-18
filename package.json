@@ -31,7 +31,6 @@
     "@dew-editor/theme-chalk": "workspace:^1.0.0",
     "@dew-editor/utils": "workspace:^1.0.0",
     "@esbuild-kit/cjs-loader": "^2.4.0",
-    "dew-editor": "workspace:^1.0.0",
     "rimraf": "^3.0.2",
     "vue": "3.2.20"
   }
