@@ -28,7 +28,7 @@
       </div>
       <div class="img-menu-insert-way-container">
         <div v-if="uploadFileWay" class="img-insert-way-item upload-file-way">
-          <UploadFile @file-list-change="fileListChange"></UploadFile>
+          <UploadFile action="http://localhost:9913/upload" :onSuccess="onSuccess" :onError="onError"></UploadFile>
         </div>
         <div v-if="!uploadFileWay" class="img-insert-way-item"></div>
       </div>
@@ -61,10 +61,6 @@ const insertContent = (event: any) => {
   emit('insertContent', 'add img')
 }
 
-function fileListChange(files: File[]) {
-  uploadFile(files)
-}
-
 function uploadFile(files: File[], data?: { [key: string]: any }) {
   const options = {
     files: files,
@@ -77,8 +73,19 @@ function uploadFile(files: File[], data?: { [key: string]: any }) {
   props.httpRequest && props.httpRequest(options)
 }
 
-function toggleImgMenuStatus() {
+const toggleImgMenuStatus: any = () => {
   console.log('-----')
   showImgDialog.value = !showImgDialog.value
+}
+
+const onSuccess = (res: any) => {
+  console.log('上传成功')
+  console.log(res)
+  emit('insertContent', `![](${res})`)
+}
+
+const onError = (err: any) => {
+  console.log('上传失败')
+  console.log(err)
 }
 </script>
