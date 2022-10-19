@@ -7,10 +7,10 @@
 <script setup lang="ts">
 import { ref, defineProps } from 'vue'
 import UploadContent from './UploadContent.vue'
-import { uploadProps } from './upload'
+import { UploadProps, uploadProps } from './upload'
 import { useHandler } from './useHandler'
 
-const props = defineProps(uploadProps)
+const props: any = defineProps(uploadProps)
 
 const { handlerError, handlerSuccess } = useHandler(props)
 
