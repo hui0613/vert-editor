@@ -5,6 +5,7 @@ export const pathRewriter = (module: Module) => {
 
   return (id: string) => {
     id = id.replace(/@dew-editor\//g, 'dew-editor/es/')
+    id = id.replace(/@dew-editor\/theme-chalk\/src/, 'dew-editor/theme-chalk')
     return id
   }
 }
