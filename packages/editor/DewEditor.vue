@@ -18,7 +18,7 @@
           <textarea @scroll="textareaScroll" ref="dewEditorTextarea" v-model="markdown"></textarea>
         </template>
         <template v-slot:rightSection>
-          <div ref="previewScroll" class="dew-editor-preview-area markdown-body" v-html="htmlContent"></div>
+          <div ref="previewScroll" class="dew-editor-preview-area markdown-body" v-html="htmlContent" v-highlight></div>
         </template>
       </DewEditorContainer>
     </div>

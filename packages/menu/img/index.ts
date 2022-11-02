@@ -1,5 +1,6 @@
 import { h, App } from 'vue'
 import imgMenu from './src/imgMenu.vue'
+import '@dew-editor/theme-chalk/src/menu/imgMenu.scss'
 
 interface ImgMenuOptions {
   app: App

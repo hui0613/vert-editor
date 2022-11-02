@@ -7,6 +7,7 @@ import nodeResolve from 'rollup-plugin-node-resolve'
 import loadJSON from '@rollup/plugin-json'
 import { buildConfigEntries } from '../build-info'
 import { writeBundle } from '../utils/rollup'
+import postcss from 'rollup-plugin-postcss'
 import { excludeFiles, deRoot, pkgRoot } from '@dew-editor/build-utils'
 
 export const buildModules = async () => {
@@ -22,6 +23,7 @@ export const buildModules = async () => {
     input,
     plugins: [
       vuePlugin(),
+      postcss(),
       commonjs(),
       loadJSON(),
       nodeResolve({
@@ -34,7 +36,7 @@ export const buildModules = async () => {
         },
       }),
     ],
-    external: ['vue', 'clipboard', 'markdown-it'],
+    external: ['vue', 'clipboard', 'markdown-it', 'highlight.js'],
     treeshake: false,
   })
 
