@@ -1,17 +1,6 @@
 <template>
   <div class="dew-editor-container" ref="editorMainContainer">
-    <div class="dew-editor-menu-container">
-      <div class="dew-editor-builtin-menu">
-        <DewPreviewMenu @changePreviewStatus="changePreviewStatus"></DewPreviewMenu>
-      </div>
-      <div class="dew-editor-custom-menu-container">
-        <template v-for="(item, index) in menuList" :key="index">
-          <div class="dww-editor-menu-item">
-            <component :is="item" @insertContent="insertContent"></component>
-          </div>
-        </template>
-      </div>
-    </div>
+    <ToolBar @insertContent="insertContent" :menu-list="props.menuList"></ToolBar>
     <div class="dew-editor-main-area">
       <DewEditorContainer :editorTextAreaHeight="editorTextAreaHeight">
         <template v-slot:leftSection>
@@ -22,7 +11,6 @@
         </template>
       </DewEditorContainer>
     </div>
-
     <div ref="clipboardButton" class="clipboard-box" :data-clipboard-text="clipboardValue"></div>
   </div>
 </template>
@@ -30,8 +18,9 @@
 <script lang="ts" setup>
 import { defineProps, onMounted, ref, computed } from 'vue'
 import DewEditorContainer from './lib/DewEditorContainer.vue'
-import DewPreviewMenu from './menu/PreviceMenu.vue'
+import ToolBar from './lib/ToolBar.vue'
 import { isExistSelection, copyTextToClipboard, insertTextIntoEditor, debounce } from './utils/tool'
+
 import MarkdownIt from 'markdown-it'
 
 const markdownIt = new MarkdownIt({
@@ -43,6 +32,7 @@ const markdownIt = new MarkdownIt({
   typographer: true,
   quotes: '""\'\'',
 })
+
 const props = defineProps({
   menuList: {
     type: Array,
@@ -51,7 +41,7 @@ const props = defineProps({
 })
 
 const clipboardValue = ref('')
-const openPreview = ref(true)
+
 const editorTextAreaHeight = ref(0)
 const markdown = ref('')
 
@@ -82,8 +72,8 @@ function insertContent(data: string) {
   markdown.value = (getTextEle() as any).value
 }
 
-function changePreviewStatus() {
-  openPreview.value = !openPreview.value
+function getTextEle() {
+  return dewEditorTextarea.value
 }
 
 function setEditorTextAreaHeight() {
@@ -99,10 +89,6 @@ function listenResize() {
       setEditorTextAreaHeight()
     }, 100)
   )
-}
-
-function getTextEle() {
-  return dewEditorTextarea.value
 }
 
 function textareaScroll(event: any) {

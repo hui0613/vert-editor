@@ -14,7 +14,20 @@
     display: flex;
     flex-direction: row;
     padding: 0 20px;
+    box-sizing: border-box;
+    justify-content: space-between;
     border-bottom: 1px solid #999;
+    .dew-editor-tools{
+      width: 60%;
+    }
+    .dew-editor-theme-menu{
+      width: 40%;
+    }
+    .split-line{
+      width: 1px;
+      margin: 0 8px;
+      background-color: #eee;
+    }
     .dww-editor-menu-item {
       float: left;
       padding: 0 4px;

@@ -1,0 +1,10 @@
+[
+  {
+    "url": "https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/npm/highlight.js@11.5.1/styles/github.min.css",
+    "name": "Github"
+  },
+  {
+    "url": "https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/npm/highlight.js@11.5.1/styles/vs2015.min.css",
+    "name": "vs2015"
+  }
+]

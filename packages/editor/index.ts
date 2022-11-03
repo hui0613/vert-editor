@@ -1,7 +1,6 @@
 import DewEditor from './DewEditor.vue'
 import highLight from 'highlight.js'
 import '@dew-editor/theme-chalk/src/editor/DewEditor.scss'
-import '@dew-editor/theme-chalk/src/editor/code-theme.scss'
 import './assets/markdown.css'
 import { App, h } from 'vue'
 
