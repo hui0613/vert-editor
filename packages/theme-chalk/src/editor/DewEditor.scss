@@ -9,8 +9,8 @@
   border: 1px solid #999;
   .dew-editor-menu-container {
     width: 100%;
-    height: 30px;
-    line-height: 30px;
+    height: 60px;
+    line-height: 60px;
     display: flex;
     flex-direction: row;
     padding: 0 20px;
@@ -19,6 +19,8 @@
     border-bottom: 1px solid #999;
     .dew-editor-tools{
       width: 60%;
+      display: flex;
+      flex-direction: row;
     }
     .dew-editor-theme-menu{
       width: 40%;
@@ -34,7 +36,7 @@
       cursor: pointer;
     }
     .dew-editor-builtin-menu {
-      line-height: 30px;
+      line-height: 60px;
     }
   }
   .dew-editor-main-area {
