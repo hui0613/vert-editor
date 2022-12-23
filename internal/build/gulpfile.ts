@@ -6,7 +6,6 @@ import { copyFile } from 'fs/promises'
 import { buildOutput, deOutPut, deRoot, projRoot } from '@dew-editor/build-utils'
 import { buildConfig, Module } from './src/build-info'
 import { copy } from 'fs-extra'
-import { buildModules } from './src'
 
 const copyFiles = () =>
   Promise.all([
@@ -24,11 +23,12 @@ export const copyTypesDefinitions: TaskFunction = (done) => {
 
 export default series(
   withTaskName('clean', () => run('pnpm run clean')),
-  buildModules,
-  withTaskName('buildThemeChalk', () => run('pnpm run -C packages/theme-chalk build')),
-  runTask('generateTypes'),
+  // buildModules,
+  // withTaskName('buildThemeChalk', () => run('pnpm run -C packages/theme-chalk build')),
+  // runTask('generateTypes'),
   copyFiles,
-  copyTypesDefinitions
+  withTaskName('build', ()=> run('vite build'))
+  // copyTypesDefinitions
 )
 
 export * from './src'

@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "pnpm -C play serve",
     "build": "pnpm -C internal/build build",
+    "vite:build": "vite build",
     "clean": "pnpm run clean:dist && pnpm run -r --parallel clean",
     "clean:dist": "rimraf dist",
     "postinstall": "pnpm run -r --parallel stub"
@@ -15,10 +16,12 @@
   "author": "hui0613",
   "license": "ISC",
   "devDependencies": {
+    "@dew-editor/build-utils": "workspace:^1.0.0",
     "@dew-editor/editor": "workspace:^1.0.0",
     "@types/fs-extra": "^9.0.13",
     "@types/markdown-it": "^12.2.3",
     "@types/node": "^18.8.3",
+    "@vitejs/plugin-vue": "^4.0.0",
     "element-plus": "^2.2.20",
     "fs-extra": "^10.1.0",
     "markdown-it": "^13.0.1",
@@ -26,7 +29,9 @@
     "postcss": "^8.4.18",
     "rollup-plugin-postcss": "^4.0.2",
     "typescript": "^4.8.3",
-    "unbuild": "^0.8.11"
+    "unbuild": "^0.8.11",
+    "vite": "^4.0.3",
+    "vite-plugin-dts": "^1.7.1"
   },
   "dependencies": {
     "@dew-editor/menu": "workspace:^1.0.0",
