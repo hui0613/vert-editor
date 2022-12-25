@@ -8,10 +8,8 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "moduleResolution": "Node",
-    "lib": ["esnext", "dom"],
-    "declaration": true,
-    "declarationDir": "dist/types"
+    "lib": ["esnext", "dom"]
   },
-  "include": ["packages/**/*.ts", "shims-vue.d.ts"],
-  "exclude": ["node_modules/**/*"]
+  "include": ["packages/**/*.ts", "packages/**/*.vue", "packages/**/*.json", "shims-vue.d.ts"],
+  "exclude": ["node_modules/**/*", "packages/theme-chalk/**/*"]
 }

@@ -15,7 +15,9 @@ importers:
       '@types/node': ^18.8.3
       '@vitejs/plugin-vue': ^4.0.0
       element-plus: ^2.2.20
+      fast-glob: ^3.2.12
       fs-extra: ^10.1.0
+      gulp: ^4.0.2
       highlight.js: ^11.6.0
       markdown-it: ^13.0.1
       mitt: ^3.0.0
@@ -43,7 +45,9 @@ importers:
       '@types/node': 18.11.0
       '@vitejs/plugin-vue': 4.0.0_vite@4.0.3+vue@3.2.20
       element-plus: 2.2.20_vue@3.2.20
+      fast-glob: 3.2.12
       fs-extra: 10.1.0
+      gulp: 4.0.2
       markdown-it: 13.0.1
       mitt: 3.0.0
       postcss: 8.4.18
@@ -1986,7 +1990,7 @@ packages:
     resolution: {integrity: sha512-RMSSvSfs9kb0VzkvQ2NWobwnj7TxCA9vI/IjR9bDHqgAyVbu2T0DN4wiKVqomyDWqO7dPr/tErSfq7urQ1Q37g==}
     dependencies:
       fast-glob: 3.2.12
-      minimatch: 5.1.0
+      minimatch: 5.1.2
       mkdirp: 1.0.4
       path-browserify: 1.0.1
     dev: true
@@ -7915,8 +7919,8 @@ packages:
     dependencies:
       brace-expansion: 1.1.11
 
-  /minimatch/5.1.0:
-    resolution: {integrity: sha512-9TPBGGak4nHfGZsPBohm9AWg6NoT7QTCehS3BIJABslyZbzxfV78QM2Y6+i741OPZIafFAaiiEMh5OyIrJPgtg==}
+  /minimatch/5.1.2:
+    resolution: {integrity: sha512-bNH9mmM9qsJ2X4r2Nat1B//1dJVcn3+iBLa3IgqJ7EbGaDNepL9QSHOxN4ng33s52VMMhhIfgCYDk3C4ZmlDAg==}
     engines: {node: '>=10'}
     dependencies:
       brace-expansion: 2.0.1
@@ -10010,6 +10014,7 @@ packages:
 
   /sourcemap-codec/1.4.8:
     resolution: {integrity: sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==}
+    deprecated: Please use @jridgewell/sourcemap-codec instead
 
   /sparkles/1.0.1:
     resolution: {integrity: sha512-dSO0DDYUahUt/0/pD/Is3VIm5TGJjludZ0HVymmhYF6eNA53PVLhnUk0znSYbH8IYBuJdCE+1luR22jNLMaQdw==}

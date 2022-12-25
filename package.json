@@ -10,6 +10,7 @@
     "vite:build": "vite build",
     "clean": "pnpm run clean:dist && pnpm run -r --parallel clean",
     "clean:dist": "rimraf dist",
+    "publish:prod": "bash scripts/publish.sh",
     "postinstall": "pnpm run -r --parallel stub"
   },
   "keywords": [],
@@ -23,7 +24,9 @@
     "@types/node": "^18.8.3",
     "@vitejs/plugin-vue": "^4.0.0",
     "element-plus": "^2.2.20",
+    "fast-glob": "^3.2.12",
     "fs-extra": "^10.1.0",
+    "gulp": "^4.0.2",
     "markdown-it": "^13.0.1",
     "mitt": "^3.0.0",
     "postcss": "^8.4.18",

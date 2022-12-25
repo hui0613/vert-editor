@@ -1,6 +1,6 @@
 {
   "name": "dew-editor",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.mjs",
@@ -29,10 +29,5 @@
     "vue": "^3.2.13",
     "element-plus": "^2.2.20",
     "mitt": "^3.0.0"
-  },
-  "dependencies": {
-    "clipboard": "^2.0.11",
-    "markdown-it": "^13.0.1",
-    "highlight.js": "^11.6.0"
   }
 }

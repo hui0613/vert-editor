@@ -1,8 +1,14 @@
 import { defineConfig } from 'vite'
 import * as path from 'path'
-import { pkgRoot } from '@dew-editor/build-utils'
+import glob from 'fast-glob'
+import { pkgRoot, deOutPut, buildOutput } from '@dew-editor/build-utils'
 import vue from '@vitejs/plugin-vue'
 import dts from 'vite-plugin-dts'
+
+export const excludeFiles = (files) => {
+  const excludes = ['node_modules', 'test', 'mock', 'gulpfile', 'dist']
+  return files.filter((path) => !excludes.some((exclude) => path.includes(exclude)))
+}
 
 export default defineConfig({
   build: {
@@ -20,7 +26,7 @@ export default defineConfig({
           //让打包目录和我们目录对应
           preserveModules: true,
           //配置打包根目录
-          dir: 'dist/es',
+          dir: path.resolve(deOutPut, 'es'),
         },
         {
           format: 'cjs',
@@ -28,7 +34,7 @@ export default defineConfig({
           //让打包目录和我们目录对应
           preserveModules: true,
           //配置打包根目录
-          dir: 'dist/lib',
+          dir: path.resolve(deOutPut, 'lib'),
         },
       ],
     },
@@ -39,15 +45,19 @@ export default defineConfig({
   plugins: [
     vue(),
     dts({
-      exclude: ['node_modules'],
-      include: ['shims-vue.d.ts'],
+      tsConfigFilePath: './tsconfig.json',
       entryRoot: 'packages',
-      compilerOptions: {
-        emitDeclarationOnly: true
+      preserveModules: true,
+      cleanVueFileName: true,
+      insertTypesEntry: true,
+      skipDiagnostics: true,
+      outputDir: path.resolve(buildOutput, 'types'),
+      beforeWriteFile: (filePath, content) => {
+        return {
+          filePath,
+          content: content.replace(/@dew-editor\//g, 'dew-editor/es/'),
+        }
       },
-      outputDir: "dist/types",
-      noEmitOnError: true,
-      logDiagnostics: true
     }),
   ],
 })

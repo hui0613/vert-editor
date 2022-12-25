@@ -23,12 +23,9 @@ export const copyTypesDefinitions: TaskFunction = (done) => {
 
 export default series(
   withTaskName('clean', () => run('pnpm run clean')),
-  // buildModules,
-  // withTaskName('buildThemeChalk', () => run('pnpm run -C packages/theme-chalk build')),
-  // runTask('generateTypes'),
+  withTaskName('build', () => run('vite build')),
   copyFiles,
-  withTaskName('build', ()=> run('vite build'))
-  // copyTypesDefinitions
+  copyTypesDefinitions
 )
 
 export * from './src'
