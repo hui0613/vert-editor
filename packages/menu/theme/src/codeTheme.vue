@@ -40,15 +40,3 @@ emitter.on('changeThemes', (item: any) => {
   }
 })
 </script>
-
-<style scoped lang="scss">
-select {
-  padding: 3px 8px;
-  outline: none;
-  border: 1px solid #eeeeee;
-}
-option {
-  margin-top: 100px;
-  border: none;
-}
-</style>

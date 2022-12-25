@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import '@dew-editor/theme-chalk/src/menu/imgMenu.scss'
+import 'dew-editor/theme-chalk/imgMenu.css'
 import { dewEditor, dewImgMenu } from '../../packages/dew-editor'
 
 const app = createApp(App)

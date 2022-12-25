@@ -23,6 +23,7 @@ export const copyTypesDefinitions: TaskFunction = (done) => {
 
 export default series(
   withTaskName('clean', () => run('pnpm run clean')),
+  withTaskName('buildThemeChalk', () => run('pnpm run -C packages/theme-chalk build')),
   withTaskName('build', () => run('vite build')),
   copyFiles,
   copyTypesDefinitions

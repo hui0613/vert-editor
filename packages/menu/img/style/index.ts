@@ -1,1 +1,1 @@
-import '@dew-editor/theme-chalk/imgMenu.css'
+import 'dew-editor/theme-chalk/menu/imgMenu.css'

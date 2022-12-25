@@ -14,17 +14,7 @@ const distBundle = path.resolve(deOutPut, 'theme-chalk')
 function buildEditorStyle() {
   const sass = gulpSass(dartSass)
 
-  return src(path.resolve(__dirname, 'src/editor/*.scss'))
-    .pipe(sass.sync())
-    .pipe(autoPrefixer({ cascade: false }))
-    .pipe(cssMin())
-    .pipe(dest(distFolder))
-}
-
-function buildMenuStyle() {
-  const sass = gulpSass(dartSass)
-
-  return src(path.resolve(__dirname, 'src/menu/*.scss'))
+  return src(path.resolve(__dirname, 'src/**/*.scss'))
     .pipe(sass.sync())
     .pipe(autoPrefixer({ cascade: false }))
     .pipe(cssMin())
@@ -35,4 +25,4 @@ function copyThemeChalkBundle() {
   return src(`${distFolder}/**`).pipe(dest(distBundle))
 }
 
-export default series(buildEditorStyle, buildMenuStyle, copyThemeChalkBundle) as any
+export default series(buildEditorStyle, copyThemeChalkBundle) as any
