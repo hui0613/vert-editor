@@ -1,0 +1,15 @@
+{
+  "name": "@vert-editor/build",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vert-editor/build-utils": "workspace:^1.0.0"
+  }
+}
