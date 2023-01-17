@@ -10,5 +10,6 @@ declare module '@vue/runtime-core' {
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     VertButton: typeof import('vert-editor')['VertButton']
     VertColumnResize: typeof import('vert-editor')['VertColumnResize']
+    VertEditor: typeof import('vert-editor')['VertEditor']
   }
 }

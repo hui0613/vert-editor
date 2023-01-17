@@ -1,0 +1,22 @@
+.vert-editor-container{
+  width: 100%;
+  height: 100%;
+  .vert-editor-edit-area{
+    width: 100%;
+    height: 100%;
+    textarea{
+      width: inherit;
+      height: inherit;
+      padding: 10px;
+      box-sizing: border-box;
+      outline: none;
+      border: none;
+      resize: none;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+  }
+  .vert-editor-previv{
+    height: 100%;
+    box-sizing: border-box;
+  }
+}

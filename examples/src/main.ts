@@ -1,6 +1,5 @@
 import { createApp } from 'vue'
-import './style.css'
 import App from './App.vue'
-import { VertButton } from '@vert-editor/vert-editor'
+import { VertEditor } from '../../packages/vert-editor/index'
 
-createApp(App).use(VertButton).mount('#app')
+createApp(App).use(VertEditor).mount('#app')
