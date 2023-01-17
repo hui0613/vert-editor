@@ -13,12 +13,12 @@ importers:
       '@types/gulp-autoprefixer': ^0.0.33
       '@types/gulp-clean-css': ^4.3.0
       '@types/gulp-sass': ^5.0.0
+      '@types/markdown-it': ^12.2.3
       '@types/node': ^18.11.18
       '@vert-editor/build-utils': workspace:^1.0.0
       '@vert-editor/components': workspace:^1.0.0
       '@vert-editor/theme-chalk': workspace:^1.0.0
       '@vert-editor/utils': workspace:^1.0.0
-      '@vert-editor/vert-editor': workspace:^0.0.1
       '@vitejs/plugin-vue': ^4.0.0
       '@vitejs/plugin-vue-jsx': ^3.0.0
       '@vitest/coverage-c8': ^0.27.1
@@ -60,12 +60,12 @@ importers:
       '@types/gulp-autoprefixer': 0.0.33
       '@types/gulp-clean-css': 4.3.0
       '@types/gulp-sass': 5.0.0
+      '@types/markdown-it': 124.222.53.40+4873/@types/markdown-it/12.2.3
       '@types/node': 18.11.18
       '@vert-editor/build-utils': link:internal/build-utils
       '@vert-editor/components': link:packages/components
       '@vert-editor/theme-chalk': link:packages/theme-chalk
       '@vert-editor/utils': link:packages/utils
-      '@vert-editor/vert-editor': link:packages/vert-editor
       '@vitejs/plugin-vue': 4.0.0_vite@4.0.4+vue@3.2.45
       '@vitejs/plugin-vue-jsx': 3.0.0_vite@4.0.4+vue@3.2.45
       '@vitest/coverage-c8': 124.222.53.40+4873/@vitest/coverage-c8/0.27.1_jsdom@21.0.0+sass@1.57.1
@@ -3975,6 +3975,27 @@ packages:
     resolution: {integrity: sha512-z/QT1XN4K4KYuslS23k62yDIDLwLFkzxOuMplDtObz0+y7VqJCaO2o+SPwHCvLFZh7xazvvoor2tA/hPz9ee7g==, registry: http://npm.xiaohuispace.com/, tarball: http://124.222.53.40:4873/@types%2fistanbul-lib-coverage/-/istanbul-lib-coverage-2.0.4.tgz}
     name: '@types/istanbul-lib-coverage'
     version: 2.0.4
+    dev: true
+
+  124.222.53.40+4873/@types/linkify-it/3.0.2:
+    resolution: {integrity: sha512-HZQYqbiFVWufzCwexrvh694SOim8z2d+xJl5UNamcvQFejLY/2YUtzXHYi3cHdI7PMlS8ejH2slRAOJQ32aNbA==, registry: http://npm.xiaohuispace.com/, tarball: http://124.222.53.40:4873/@types%2flinkify-it/-/linkify-it-3.0.2.tgz}
+    name: '@types/linkify-it'
+    version: 3.0.2
+    dev: true
+
+  124.222.53.40+4873/@types/markdown-it/12.2.3:
+    resolution: {integrity: sha512-GKMHFfv3458yYy+v/N8gjufHO6MSZKCOXpZc5GXIWWy8uldwfmPn98vp81gZ5f9SVw8YYBctgfJ22a2d7AOMeQ==, registry: http://npm.xiaohuispace.com/, tarball: http://124.222.53.40:4873/@types%2fmarkdown-it/-/markdown-it-12.2.3.tgz}
+    name: '@types/markdown-it'
+    version: 12.2.3
+    dependencies:
+      '@types/linkify-it': 124.222.53.40+4873/@types/linkify-it/3.0.2
+      '@types/mdurl': 124.222.53.40+4873/@types/mdurl/1.0.2
+    dev: true
+
+  124.222.53.40+4873/@types/mdurl/1.0.2:
+    resolution: {integrity: sha512-eC4U9MlIcu2q0KQmXszyn5Akca/0jrQmwDRgpAMJai7qBWq4amIQhZyNau4VYGtCeALvW1/NtjzJJ567aZxfKA==, registry: http://npm.xiaohuispace.com/, tarball: http://124.222.53.40:4873/@types%2fmdurl/-/mdurl-1.0.2.tgz}
+    name: '@types/mdurl'
+    version: 1.0.2
     dev: true
 
   124.222.53.40+4873/@types/node/18.11.18:
